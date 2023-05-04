@@ -7,7 +7,8 @@ from GetInfoPdf import GetInfoPdf
 
 eureka_client.init(eureka_server="http://localhost:8761/eureka",
                    app_name="api-infoconstancia",
-                   instance_port=8082)
+                   instance_port=5000,
+                   instance_ip="localhost")
 
 # app Flask
 app = Flask(__name__)
@@ -33,5 +34,5 @@ def pagina_no_encontrada(error):
 
 if __name__ == '__main__':
     app.register_error_handler(404, pagina_no_encontrada)
-    app.run(port=8082)
-    app.run(host='0.0.0.0', debug=False)
+    app.run(port=5000)
+    app.run(host='127.0.0.1', debug=False)
